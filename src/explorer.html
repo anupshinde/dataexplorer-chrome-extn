@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Data Explorer: Execute Force.com SOQL queries from your browser</title>
+	
+	<script src="/oauth2/oauth2.js"></script>
+
+	<script src="lib/jquery.min.js"></script>
+	<script src="lib/behave.js"></script>
+
+	<script src="lib/fixes.js"></script>	
+	
+	<script src="lib/uniform/jquery.uniform.min.js"></script>
+	<link rel="stylesheet" href="lib/uniform/css/uniform.default.min.css" media="screen" />
+	<link rel="stylesheet" href="lib/uniform/css/site.css" media="screen" />
+
+	<link rel="stylesheet" href="lib/datatables/css/jquery.dataTables.css" media="screen" />
+	
+	<script type="text/javascript" src="lib/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="lib/require.js"></script>
+
+	<script src="explorer.js" type="text/javascript"></script>
+	<script src="analytics.js" type="text/javascript"></script>
+
+  </head>
+  <body>
+  	<div id="header_div" style="width:90%; margin:10px;background-color: #fafafa;">
+		<img src="icon.png" style="height:32px;width:32px;" />
+		<span 	style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 24px;font-weight: bold;color: lightslategray;">
+		Data Explorer: Execute Force.com SOQL queries from your browser
+		</span>
+		<div style="float:right;">
+			<a href="#" id="helplink">Help?</a>
+		</div>
+	</div>
+	<div id="app_div" style="width:90%; margin:10px;">
+		<label id="status"></label>
+		<div style="float:right;">
+			<span id="userDetails" style="font-weight:bold; color: lightseagreen;"></span>
+			<input type="button" id="clearToken" value="Logout" ></input> 
+			<input type="button" id="getToken" value="Login" ></input> 
+		</div>
+
+		<div id="queryForm" style="padding-top:15px">
+			<textarea id="query" rows="3" style="width:100%; font-size:22px;">
+SELECT Name, Site, Phone, Type, Owner.Name, CreatedBy.profile.Name FROM Account
+			</textarea><br/>
+			<input type="button" value="query" id="btnQuery"></input>
+			<div id="content" style="padding-top:10px">
+			</div>
+			
+		</div>
+		<div id="beforeLoginContent">
+			<b>Click Login to proceed -- ></b>
+		</div>		
+	</div>
+  </body>
+</html>

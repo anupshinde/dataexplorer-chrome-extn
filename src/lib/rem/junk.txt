@@ -1,0 +1,49 @@
+
+function getColsOfObject(obj, headersOnly) {
+	if(typeof(obj)!="object") {
+		return obj;
+	}
+	var s ='';
+	headersOnly= (headersOnly==true);
+	if(headersOnly) {
+		for(var col in obj) {
+			s+='<td>'+col + '</td>';
+		}		
+	} else {
+		for(var col in obj) {
+			s+='<td>'+obj[col] + '</td>';
+		}
+	}
+	return s;
+}
+
+function renderData(records) {
+	if(records.length==0) {
+		return '<div>No records found</div>';
+	}
+	
+	var i,j,val, sample_rec, col;
+	var s = '';
+	s+='<table border=1>';
+	
+	s+="<thead><tr>";
+	sample_rec = records[0]
+	for(col in sample_rec) {
+		s+="<th>"+col+"</th>";
+	}
+	s+="</tr></thead>";
+
+	s+="<tbody>";	
+	for(i=0;i<records.length;i++) {
+		s+="<tr>";
+		for(col in records[i]) {
+			val = records[i][col];
+			s+="<td >"+getColsOfObject(val)+"</td>";
+		}
+		s+="</tr>";		
+	}
+	s+="</tbody>";	
+	s+='</table>';
+
+	return s;
+}
