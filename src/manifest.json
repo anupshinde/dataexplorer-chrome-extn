@@ -3,7 +3,7 @@
 
   "name": "Data Explorer for Force.com",
   "description": "Execute Force.com SOQL queries from your browser",
-  "version": "1.0",
+  "version": "1.0.1",
   "icons": { "16": "icon.png",
            "48": "icon.png",
           "128": "icon.png" 
